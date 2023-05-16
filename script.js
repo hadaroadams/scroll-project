@@ -6,8 +6,14 @@ let links = document.querySelectorAll('li')
 let page= document.querySelectorAll("section")
 let exploreButton= document.querySelector("#explore")
 let loader= document.querySelector(".loader")
+let year=document.querySelector('#year')
 let state=true
-console.log(page[0].offsetTop)
+//console.log(page[0].offsetTop)
+let date = new Date()
+
+//footer span content
+year.innerText=date.getFullYear()
+
 // console.log(page[1].getBoundingClientRect())
 //preloader
 window.addEventListener("DOMContentLoaded",()=>{
@@ -68,17 +74,17 @@ links.forEach(item => {
                 behavior:"smooth"
             })
         }else if(item.id=="about"){
-            console.log(page[0].getBoundingClientRect().top)
+           // console.log(page[0].getBoundingClientRect().top)
             position(0)
-            console.log("about")
+           // console.log("about")
         }else if(item.id=="service"){
-            console.log(page[1].getBoundingClientRect().y-67)
+            //console.log(page[1].getBoundingClientRect().y-67)
             position(1)
-            console.log("service")
+           // console.log("service")
         }else if(item.id=="tour"){
-            console.log(page[2].getBoundingClientRect().top)
+            //console.log(page[2].getBoundingClientRect().top)
             position(2)
-            console.log("tour")
+          //  console.log("tour")
         }else{
             console.log("erro")
         }
