@@ -5,7 +5,7 @@
 }
 li{
     list-style: none;
-    margin-left: 30px;
+    margin-left: 40px;
 }
 a{
     color: white;
@@ -13,39 +13,133 @@ a{
     font-size: 1.3em;
     font-weight: bold;
     transition: 0.2s ;
-    &:hover{
-        border-bottom:2px solid white ;
-    }
+    letter-spacing: 2;
+   
 }
 header{
     background:linear-gradient(rgba(63, 208, 212, 0.5),rgba(0, 0, 0, 0.7)), url("./asserts/homeImage.jpeg");
     background-size: cover;
     width:100%;
     height: 100%;
-
     nav{
         display: flex;
         justify-content: space-between;
-        align-items: center;
         padding: 20px;
+        height:70px;
 
-        .logodiv{
-            width: fit-content;
-            margin-left: 7px;
-            .logo{
-                width: 60px;
+        .subdiv{
+            img{
+                width: 70px;
+                padding-left: 20px;
             }
         }
-
+        
         .links{
-            flex:0.4;
+            display: flex;
+            align-items: center;
+
             ul{
                 display: flex;
-                justify-content: space-around;
+            }
+        }
+            
+        button{
+            display: none;
+        }
+
+        @media (max-width:700px) {
+            &{
+                background-color: white;
+                position: fixed;
+                width: 100%;
+                flex-direction: column;
+                padding-left: 0;
                 
+            }
+            & .clear{
+                display: none;
+            }
+            &.rowDown{
+                animation: rowdown alternate 0.5s linear forwards;
+                overflow: hidden;
+
+                @keyframes rowdown {
+                    from{
+                        height: 70px;
+                    }
+                    to{
+                        height: 350px;
+                    }
+                    
+                }
+            }
+            &.rowUp{
+                animation: rowUP alternate 0.5s linear forwards ;
+                 overflow: hidden;
+
+                @keyframes rowUP {
+                    from{
+                        height: 350px;
+                    }
+                    to{
+                        height: 70px;
+                    }
+                    
+                }
+            }
+             
+            & .links{
+                ul{
+                    flex-direction: column;
+                    margin-top: 40px;
+                    padding-left:0px;
+                    width: 100%;
+                    
+                    li{
+                    margin: 0;
+                    padding:20px 20px ;
+                    transition: 0.4s;
+                    width: 100%;
+                    cursor: pointer;
+
+                        a{
+                            color: rgb(8, 50, 27);
+                            width:10px;
+                            
+                        }
+                        &:hover{
+                            background-color:rgba(63, 208, 212, 0.5);
+                        }
+                    }
+                }
+            }
+            .subdiv{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                position: relative;
+
+                button{
+                    display: block;
+                    font-size: 2em;
+                    width: fit-content;
+                    height: fit-content;
+                    background-color: transparent;
+                    transition: 0.5s;
+                    border: none;
+                    position: relative;
+                    right: 30px;
+
+
+                    &:hover{
+                        color:rgba(63, 208, 212, 0.5) ;
+                        transform: rotate(90deg);
+                    }
+                }
             }
         }
     }
+
     .home{
         display: flex;
         flex-direction: column;
@@ -71,11 +165,12 @@ header{
             font-size: 0.9em;
             letter-spacing: 2; 
             padding: 10;
-            transition:0.4s ;
+            transition:0.4s;
             cursor:pointer;
 
             &:hover{
                 color:rgba(63, 208, 212, 0.5 );
+                transform: rotate(90);
                 background-color: white;
             }
         }
@@ -106,3 +201,4 @@ footer{
         font-size: 1em;
     }
 }
+
